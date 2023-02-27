@@ -13,6 +13,7 @@ const schema = new mongoose.Schema({
     question: {type:String},
     imageURL: {type:Array},
     videoURL: {type: Array},
+    overviewImg:{type:String,default:""},
     answerList: {type: Array},
     correctAnswer: {type:Number, default: 0},
     explaination: {type: String},

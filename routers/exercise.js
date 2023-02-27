@@ -11,6 +11,7 @@ router.post("/create-exercise", async(req,res) => {
             question: req.body.question,
             imageURL : req.body.img,
             videoURL: req.body.video,
+            overviewImg: req.body.overviewImg,
             answerList: req.body.answerList,
             correctAnswer : req.body.correctAnswer,
             courseId: req.body.courseId,
