@@ -11,11 +11,12 @@ import mongoose from "mongoose";
 const schema = new mongoose.Schema({
     order: {type: Number , required: true},
     question: {type:String},
-    imageURL:   {type:String},
+    imageURL: {type:Array},
     videoURL: {type: Array},
     answerList: {type: Array},
     correctAnswer: {type:Number, default: 0},
     explaination: {type: String},
+    courseId:{type:String},
     answerStat: {type: Number, default:0},
     firstAttempt: {type: Array}
 }, {timestamps: true})
