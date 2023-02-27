@@ -9,8 +9,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000
 
-const URI = 'mongodb://127.0.0.1:27017/chart'
-// const URI = process.env.URI
+// const URI = 'mongodb://127.0.0.1:27017/chart'
+const URI = process.env.URI
 
 app.use(bodyParser.json({limit: '30mb'}));
 app.use(bodyParser.urlencoded({extended: true, limit : '30mb'}));
