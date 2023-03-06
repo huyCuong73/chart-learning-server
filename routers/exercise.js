@@ -48,8 +48,52 @@ router.put("/check-answer", async(req,res) => {
         console.log(err);
     }
 })
+// const schema = new mongoose.Schema({
+//     order: {type: Number , required: true},
+//     question: {type:String},
+//     imageURL: {type:Array},
+//     videoURL: {type: Array},
+//     overviewImg:{type:String,default:""},
+//     answerList: {type: Array},
+//     correctAnswer: {type:Number, default: 0},
+//     explaination: {type: String},
+//     courseId:{type:String},
+// }, {timestamps: true})
 
+//             order,
+//             question,
+//             answerList,
+//             overviewImg,
+//             img,
+//             video,
+//             correctAnswer,
+//             courseId,
+//             explaination,
+//             expImg
+router.put("/update-exercise", async(req,res) => {
+    try{    
+        const exercise = await ExerciseModel.findByIdAndUpdate(
+            req.body.exerciseId,{
+                $set: { 
+                    order: req.body.order,
+                    question: req.body.question,
+                    imageURL: req.body.img,
+                    videoURL: req.body.video,
+                    overviewImg: req.body.overviewImg,
+                    answerList: req.body.answerList,
+                    correctAnswer: req.body.correctAnswer,
+                    explaination: req.body.explaination,
+                    courseId: req.body.courseId,
+                }
+            }
 
+        )
+        res.status(201).json(exercise);
+    }catch(err){
+        res.status(500).json(err)
+        console.log(err);
+    }
+})
 
 router.post("/", async(req, res) => {
     if(req.headers.token){
@@ -96,12 +140,23 @@ router.post("/", async(req, res) => {
     })
 
     
-    router.get("/:id", async(req, res) => {
-        try{
-            const exercise = await ExerciseModel.findById(req.params.id)
-            return res.status(201).json(exercise)
-        } catch (err){
-            res.status(500).json(err);
-        }
-    })
+router.get("/:id", async(req, res) => {
+    try{
+        const exercise = await ExerciseModel.findById(req.params.id)
+        return res.status(201).json(exercise)
+    } catch (err){
+        res.status(500).json(err);
+    }
+})
+
+router.get("/", async(req, res) => {
+    try{
+        const exerciseList = await ExerciseModel.find()
+        return res.status(201).json(exerciseList)
+    } catch (err){
+        res.status(500).json(err )
+    }
+})
+
+
 export default router

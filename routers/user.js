@@ -6,7 +6,6 @@ import verify from "../middleware/verify.js";
 
 router.put("/update-practice-progress", async(req, res) => {
     try{
-        console.log("check");
         const userUpdated = await UserModel.findByIdAndUpdate(
             req.body.userId,{
                 $set: { 
