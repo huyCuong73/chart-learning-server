@@ -14,6 +14,8 @@ const schema = new mongoose.Schema({
     imageURL: {type:Array},
     videoURL: {type: Array},
     overviewImg:{type:String,default:""},
+    initImg: {type: String, default:""},
+    initVideo:{type:String, default:""},
     answerList: {type: Array},
     correctAnswer: {type:Number, default: 0},
     explaination: {type: String},
