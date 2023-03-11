@@ -143,6 +143,16 @@ router.post("/", async(req, res) => {
     }
     })
 
+
+router.delete("/:id", async (req, res) => {
+
+    try {
+        await ExerciseModel.findByIdAndDelete(req.params.id);
+        return res.status(200).json("The exercise has been deleted...");
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+});
     
 router.get("/:id", async(req, res) => {
     try{
