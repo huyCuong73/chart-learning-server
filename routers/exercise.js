@@ -154,9 +154,10 @@ router.delete("/:id", async (req, res) => {
     }
 });
     
-router.get("/:id", async(req, res) => {
+router.get("/:order", async(req, res) => {
     try{
-        const exercise = await ExerciseModel.findById(req.params.id)
+        
+        const exercise = await ExerciseModel.findOne({order: req.params.order})
         return res.status(201).json(exercise)
     } catch (err){
         res.status(500).json(err);
