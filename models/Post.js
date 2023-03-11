@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
     thumnailImg: {type: String},
     date: {type: String, required: true},
     des: {type: String, default: ""},
-    content: {type: String, required: true}
+    content: {type: String, required: true},
 }, {timestamps: true})
 
 export const PostModel = mongoose.model('post', schema)
