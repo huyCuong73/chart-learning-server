@@ -101,7 +101,7 @@ router.put("/update-exercise", async(req,res) => {
 
 router.post("/", async(req, res) => {
     if(req.headers.token){
-        console.log(req.body.exerciseNo)
+        
         let sample = 0;
         if(sample < req.body.exerciseNo){
             sample = req.body.exerciseNo

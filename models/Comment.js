@@ -2,18 +2,19 @@ import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
     pageId: {
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
     },
 
     parentCommentId: {
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'comments',
         required: false, 
     },
  
-    username: {
-        type: String,
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
         required: true,
     },
 
@@ -23,4 +24,4 @@ const schema = new mongoose.Schema({
     },  
 }, {timestamps: true})
 
-export const CourseModel = mongoose.model('comment', schema)
+export const CommentModel = mongoose.model('comment', schema)
